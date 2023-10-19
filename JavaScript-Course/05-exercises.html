@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Excerises</title>
+
+    <style></style>
+  </head>
+
+  <body>
+    <p>Exercises</p>
+    <button
+      onclick="
+  console.log(`My name is: ${myName}`);"
+    >
+      Name
+    </button>
+    <hr />
+    <button
+      onclick="
+  console.log(`You order ${coffeeCount += 1} coffee. \n\nTotal coffee cost is: $${cost = cost + 5 * coffeeCount}`);"
+    >
+      Coffee
+    </button>
+    <button
+      onclick="
+console.log(`You order ${bagelCount += 1} bagel. \n\nTotal bagel cost is: $${cost = cost + 3 * bagelCount}`);"
+    >
+      Bagel
+    </button>
+
+    <button
+      onclick="
+console.log(`You order ${soupCount += 1} soup. \n\nTotal soup cost is: $${cost = cost + 9 * soupCount}`);"
+    >
+      Soup
+    </button>
+
+    <button onclick="console.log(`Total cost of the food without tax is: $${cost}\n\nTotal cost with tax is: $${cost = cost + cost * tax}`)  ;">
+      Total Cost
+    </button>
+
+    <button
+      onclick="
+cost = 0;
+coffeeCount = 0;
+bagelCount = 0;
+soupCount = 0;
+
+console.log(`You canceled your order.`);"
+    >
+      Cancel Order
+    </button>
+
+    <script>
+      const myName = "Erhan";
+      let cost = 0;
+      let coffeeCount = 0;
+      let bagelCount = 0;
+      let soupCount = 0;
+      let tax = 0.1;
+    </script>
+  </body>
+</html>

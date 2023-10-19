@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+
+    <style>
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.calculator {
+    background-color: #333;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+    background-color: #444;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.output {
+    color: #fff;
+    font-size: 24px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+    padding: 10px;
+}
+
+button {
+    background-color: #555;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #777;
+}
+    </style>
+  </head>
+
+  <body>
+    <div style="display: flex; justify-content: center">
+
+    <div class="calculator">
+      <div class="screen">
+          <div class="output" id="output"></div>
+      </div>
+      <div class="buttons">
+          <button class="operator" id="clear" onclick="
+          console.log(calculation = '')
+          
+          " >C</button>
+          <button class="number" id="seven" onclick="
+          console.log(calculation += '7')
+          
+          ">7</button>
+          <button class="number" id="eight" onclick="
+          console.log(calculation += '8')
+          
+          ">8</button>
+          <button class="number" id="nine" onclick="
+          console.log(calculation += '9')
+          
+          ">9</button>
+          <button class="operator" id="add" onclick="
+          console.log(calculation += ' + ')
+          
+          ">+</button>
+          <button class="number" id="four" onclick="
+          console.log(calculation += '4')
+          
+          ">4</button>
+          <button class="number" id="five" onclick="
+          console.log(calculation += '5')
+          
+          ">5</button>
+          <button class="number" id="six" onclick="
+          console.log(calculation += '6')
+          
+          ">6</button>
+          <button class="operator" id="subtract" onclick="
+          console.log(calculation += ' - ')">-</button>
+          <button class="number" id="one"  onclick="
+          console.log(calculation += '1')
+          
+          ">1</button>
+          <button class="number" id="two"  onclick="
+          console.log(calculation += '2')
+          
+          ">2</button>
+          <button class="number" id="three"  onclick="
+          console.log(calculation += '3')
+          
+          ">3</button>
+          <button class="operator" id="multiply" onclick="
+          console.log(calculation += ' * ')
+          
+          ">*</button>
+          <button class="number" id="zero"  onclick="
+          console.log(calculation += '0')
+          
+          ">0</button>
+          <button class="operator" id="divide" onclick="
+          console.log(calculation += ' / ')
+          
+          ">/</button> 
+          <button class="operator" id="equals" onclick="
+          console.log(eval(calculation))
+          
+          ">=</button>
+      </div>
+  </div>
+    <script>
+      let calculation = "";
+    </script>
+  </body>
+</html>
