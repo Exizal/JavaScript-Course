@@ -1,135 +1,160 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
+        .calculator {
+            background-color: #333;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 12px rgb(0, 0, 0);
+        }
 
-.calculator {
-    background-color: #333;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+        .screen {
+            background-color: #444;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
 
-.screen {
-    background-color: #444;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+        .output {
+            color: #fff;
+            font-size: 24px;
+        }
 
-.output {
-    color: #fff;
-    font-size: 24px;
-}
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1px;
+            padding: 10px;
+        }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1px;
-    padding: 10px;
-}
+        button {
+            background-color: #555;
+            color: #fff;
+            font-size: 20px;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+        }
 
-button {
-    background-color: #555;
-    color: #fff;
-    font-size: 20px;
-    padding: 15px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #777;
-}
+        button:hover {
+            background-color: #777;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-    <div style="display: flex; justify-content: center">
+<body class="bg-dark">
+    <div style="display: flex; justify-content: center;">
 
-    <div class="calculator">
-      <div class="screen">
-          <div class="output" id="output"></div>
-      </div>
-      <div class="buttons">
-          <button class="operator" id="clear" onclick="
+        <div class="calculator" >
+            <div class="screen">
+                <div class="output" id="output"> &nbsp; </div>
+            </div>
+            <div class="buttons">
+                <button class="operator" id="clear" onclick="
           console.log(calculation = '')
           
-          " >C</button>
-          <button class="number" id="seven" onclick="
+          ">C</button>
+                <button class="number" id="seven" onclick="
           console.log(calculation += '7')
           
           ">7</button>
-          <button class="number" id="eight" onclick="
+                <button class="number" id="eight" onclick="
           console.log(calculation += '8')
           
           ">8</button>
-          <button class="number" id="nine" onclick="
+                <button class="number" id="nine" onclick="
           console.log(calculation += '9')
           
           ">9</button>
-          <button class="operator" id="add" onclick="
+                <button class="operator" id="add" onclick="
           console.log(calculation += ' + ')
           
           ">+</button>
-          <button class="number" id="four" onclick="
+                <button class="number" id="four" onclick="
           console.log(calculation += '4')
           
           ">4</button>
-          <button class="number" id="five" onclick="
+                <button class="number" id="five" onclick="
           console.log(calculation += '5')
           
           ">5</button>
-          <button class="number" id="six" onclick="
+                <button class="number" id="six" onclick="
           console.log(calculation += '6')
           
           ">6</button>
-          <button class="operator" id="subtract" onclick="
+                <button class="operator" id="subtract" onclick="
           console.log(calculation += ' - ')">-</button>
-          <button class="number" id="one"  onclick="
+                <button class="number" id="one" onclick="
           console.log(calculation += '1')
           
           ">1</button>
-          <button class="number" id="two"  onclick="
+                <button class="number" id="two" onclick="
           console.log(calculation += '2')
           
           ">2</button>
-          <button class="number" id="three"  onclick="
+                <button class="number" id="three" onclick="
           console.log(calculation += '3')
           
           ">3</button>
-          <button class="operator" id="multiply" onclick="
+                <button class="operator" id="multiply" onclick="
           console.log(calculation += ' * ')
           
           ">*</button>
-          <button class="number" id="zero"  onclick="
+                <button class="number" id="zero" onclick="
           console.log(calculation += '0')
           
           ">0</button>
-          <button class="operator" id="divide" onclick="
+                <button class="operator" id="divide" onclick="
           console.log(calculation += ' / ')
           
-          ">/</button> 
-          <button class="operator" id="equals" onclick="
+          ">/</button>
+                <button class="operator" id="equals" onclick="
           console.log(eval(calculation))
           
           ">=</button>
-      </div>
-  </div>
-    <script>
-      let calculation = "";
-    </script>
-  </body>
+            </div>
+        </div>
+        <script>       
+            let calculation = "";
+            const outputElement = document.getElementById("output");
+
+            function updateOutput() {
+                outputElement.textContent = calculation;
+            }
+
+            document.getElementById("clear").addEventListener("click", function () {
+                calculation = "";
+                updateOutput();
+            });
+
+            document.getElementById("equals").addEventListener("click", function () {
+                try {
+                    const result = eval(calculation);
+                    calculation = result.toString();
+                    updateOutput();
+                } catch (error) {
+                    calculation = "Error";
+                    updateOutput();
+                }
+            });
+        </script>
+
+</body>
+
 </html>
