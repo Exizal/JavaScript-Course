@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../webdesignfreelance"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Website"
+	}
+}

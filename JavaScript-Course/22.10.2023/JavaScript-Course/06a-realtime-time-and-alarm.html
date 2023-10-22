@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Clock with Alarm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+  <input id="alarmHour" type="number" placeholder="Hour" />
+  <input id="alarmMinute" type="number" placeholder="Minute" />
+  <button id="alarmbutton">Set Alarm</button>
+  <p class="text-light" id="timeid"></p>
+  <script>
+    const output = document.getElementById("timeid");
+    const alarmButton = document.getElementById("alarmbutton");
+    let alarmTriggered = false;
+
+    function formatTime(time) {
+      return time < 10 ? `0${time}` : time;
+    }
+
+    function updateTime() {
+      const time = new Date();
+      const hour = time.getHours();
+      const minute = time.getMinutes();
+
+      if (hour >= 6 && hour <= 12) {
+        output.textContent = `Current hour is ${formatTime(hour)}:${formatTime(minute)}. Good morning!`;
+      } else if (hour >= 13 && hour <= 17) {
+        output.textContent = `Current hour is ${formatTime(hour)}:${formatTime(minute)}. Good afternoon`;
+      } else if (hour >= 18 && hour <= 23) {
+        output.textContent = `Current hour is ${formatTime(hour)}:${formatTime(minute)}. Good night!`;
+      } else {
+        output.textContent = `Current hour is ${formatTime(hour)}:${formatTime(minute)}. It's midnight, you should sleep.`;
+      }
+
+      // Alarm kontrolü
+      const alarmHour = parseInt(document.getElementById("alarmHour").value);
+      const alarmMinute = parseInt(document.getElementById("alarmMinute").value);
+
+      if (alarmHour === hour && alarmMinute === minute && !alarmTriggered) {
+        alert("Alarm!");
+        alarmTriggered = true; // Alarm tetiklendiğinde bayrağı ayarla
+      }
+    }
+
+    updateTime(); // Saati başlatır.
+
+    setInterval(updateTime, 1000); // Saniye başı saati güncelleme
+
+    alarmButton.addEventListener("click", () => {
+      alarmTriggered = false; // Alarmı sıfırla
+      updateTime(); // Alarmı günceller
+    });
+  </script>
+</body>
+</html>
